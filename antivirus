@@ -1,0 +1,17 @@
+LABEL endpoint
+        MENU LABEL ** Symantec Endpoint Recovery
+        kernel memdisk
+        INITRD http://bignas:8080/pxe/nbrt_brice.iso  raw iso
+
+
+LABEL AV
+          MENU LABEL ** Bitdefender Rescue CD
+          KERNEL http://bignas:8080/pxe/bitdefender/boot/kernel.i386-pc
+          APPEND initrd=http://bignas:8080/pxe/bitdefender/boot/initfs.i386-pc root=/dev/ram0 real_root=/dev/loop0 loop=http://bignas:8080/pxe/bitdefender/rescue/livecd.squashfs cdroot_marker=/rescue/livecd.
+squashfs initrd udev cdroot scandelay=10 quiet slash lang=en
+
+label KAV10
+	MENU LABEL ** Kaspersky Rescue CD 10 (via BIGNAS)
+	kernel http://bignas:8080/pxe/kaspersky/rescue
+	append initrd=http://bignas:8080/pxe/kaspersky/rescue.igz root=/dev/ram0 cdroot=1 kavlang=en loop=image.squashfs looptype=squashfs realroot=/
+

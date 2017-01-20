@@ -1,0 +1,40 @@
+LABEL mfs101 
+        MENU LABEL ^. mfsBSD 10.1amd64 se (Live user=root pass=mfsroot)
+        KERNEL memdisk
+        APPEND raw initrd=images/mfsbsd/mfsbsd-se-10.1-RELEASE-amd64.iso iso
+
+LABEL openelec
+	MENU LABEL ^. Openelec 6.0.3 (Installation)
+	KERNEL http://bignas:8080/pxe/openelec/v6/target/KERNEL
+	APPEND ip=dhcp boot=NFS=172.31.1.200:/zSTORAGE1/http_docroot/internal/pxe/openelec/v6/target installer tty	
+
+LABEL ubuntu1204
+	MENU LABEL ^. Ubuntu Desktop 12.04LTS (Live/Installer)
+	KERNEL http://bignas:8080/pxe/ubuntu1204lts/casper/vmlinuz.efi
+	APPEND root=/dev/nfs boot=casper netboot=nfs nfsroot=172.31.1.200:/zSTORAGE1/http_docroot/internal/pxe/ubuntu1204lts initrd=http://bignas:8080/pxe/ubuntu1204lts/casper/initrd.lz keyboard-layouts=fr
+
+LABEL srrd 
+  	MENU LABEL ^. System Rescue CD 4.1.0 (Live)
+    	KERNEL http://bignas:8080/pxe/srcd/rescue32
+      	APPEND setkmap=fr netboot=http://bignas:8080/pxe/srcd/sysrcd.dat initrd=images/srcd/initram.igz
+
+LABEL win 
+	MENU LABEL  ^. Windows 7/8/8.1/10 (Installation)
+	KERNEL memdisk
+	INITRD http://bignas:8080/pxe/winpex86/winpe_x86.iso
+	APPEND iso raw
+	
+LABEL esx55
+	MENU LABEL ^. ESXi 5.5 update 2 (Installation)
+	kernel memdisk
+	INITRD http://bignas:8080/pxe/esxi55.iso raw iso
+	
+LABEL esx6
+	MENU LABEL ^. ESXi 6.0 (Installation)
+	kernel memdisk
+	INITRD http://bignas:8080/pxe/esxi6.iso raw iso
+	
+Label Centos
+	menu label ^. CentOS 7 x64 (Installation Kickstart)
+	kernel http://bignas.home:8080/pxe/centos/7/images/pxeboot/vmlinuz
+	append initrd=http://bignas.home:8080/pxe/centos/7/images/pxeboot/initrd.img ks=http://bignas.home/pxe/centos/anaconda-ks-centos7.cfg

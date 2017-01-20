@@ -1,0 +1,13 @@
+DEFAULT menu.c32
+MENU TITLE PXE BOOT SPECIFIC
+ONTIMEOUT continue
+NOHALT 1
+PROMPT 0
+TIMEOUT 20
+LABEL CentOS 7 x64 (Installation Kickstart)
+	MENU LABEL CentOS 7 x64 (Installation Kickstart)
+	kernel http://bignas.home:8080/pxe/centos/7/images/pxeboot/vmlinuz
+	append initrd=http://bignas.home:8080/pxe/centos/7/images/pxeboot/initrd.img ks=http://bignas.home/pxe/centos/anaconda-ks-centos7_foreman1.cfg
+LABEL continue
+	MENU LABEL ** Continue boot next device
+	LOCALBOOT 0

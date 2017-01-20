@@ -1,0 +1,10 @@
+LABEL 1
+	MENU LABEL ^1. Gparted Live 0.20.0-2amd64 (via BIGNAS)
+	kernel http://bignas:8080/pxe/gparted/live/vmlinuz
+	append initrd=http://bignas:8080/pxe/gparted/live/initrd.img boot=live config union=aufs noswap noprompt vga=788 fetch=http://bignas:8080/pxe/gparted/live/filesystem.squashfs keyboard-layouts=fr locales=us_US.UTF-8
+
+LABEL 2
+	MENU LABEL ^2. Clonezilla 20150217amd64 (via BIGNAS)
+	kernel http://bignas:8080/pxe/clonezilla/live/vmlinuz
+	append initrd=http://bignas:8080/pxe/clonezilla/live/initrd.img  boot=live live live-config noswap nolocales edd=on nomodeset ocs_live_run="ocs-live-general" ocs_live_extra_param="" keyboard-layouts=fr locales=us_US.UTF-8 ocs_live_batch="no" vga=788 nosplash noprompt fetch=http://bignas:8080/pxe/clonezilla/live/filesystem.squashfs
+

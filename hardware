@@ -1,0 +1,29 @@
+LABEL memdiag5
+       MENU LABEL ** Memtest86+ v5.0.1
+       KERNEL images/memtest/memtest
+
+LABEL memdiag6
+       MENU LABEL ** Memtest86+ v6.0
+       KERNEL memdisk
+	INITRD images/memtest/Memtest86-6.0.0.iso
+	APPEND iso raw
+
+
+LABEL 1
+	MENU LABEL ^1. Western Digital Data Lifeguard Diagnostic 5.04
+	KERNEL memdisk
+	INITRD images/wd/Diag504cCD.iso
+	APPEND iso raw
+
+LABEL 2
+        MENU LABEL ^2. Western Digital Data Lifeguard Diagnostic 5.22
+        KERNEL memdisk
+        INITRD images/wd/wddiag522.img
+        APPEND raw
+
+
+LABEL 3
+	MENU LABEL ^3. Seagate Diagnostic tool 2.23
+	KERNEL memdisk
+	INITRD images/seagate/SeaToolsDOS223ALL.ISO
+	APPEND iso raw
